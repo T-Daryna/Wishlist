@@ -22,6 +22,7 @@ body {
     gap: 6.25rem;
     overflow: hidden;
     align-items: center;
+    margin: 0 auto;
 }
 
 header {
@@ -53,7 +54,7 @@ header {
 }
 
 .gift-icon {
-    max-width: 4%;
+    max-width: 29px;
 }
 
 
@@ -75,12 +76,12 @@ header {
     border: 2px solid #0f0f0f;
     border-radius: 1rem;
     padding: 0.5rem;
-    cursor: pointer;
 }
 
 .wishlist-wrapper {
     display: flex;
     gap: 2rem;
+    justify-content: center;
     flex-wrap: wrap;
     margin-top: 2rem;
 }
@@ -153,4 +154,40 @@ header {
 
 .price {
     font-size: 1.5rem;
+}
+
+
+
+.check-hidden {
+    opacity: 0;
+}
+
+
+.custom-error {
+    background: #De2e28 !important;
+    padding: 1rem !important;
+    border-radius: 1rem !important;
+}
+
+
+/* ----------------------------------------- */
+
+
+@media screen and (max-width: 850px) {
+    header {
+        flex-direction: column;
+    }
+    .strars {
+        display: none;
+    }
+}
+@media screen and (max-width: 453px) {
+    .info {
+        font-size: 2rem;
+    }
+}
+@media screen and (max-width: 340px) {
+    .info {
+        font-size: 1.5rem;
+    }
 }

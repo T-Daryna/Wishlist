@@ -1,7 +1,8 @@
 let cards;
 const wishlistWrapper = document.querySelector('.wishlist-wrapper')
+const url = 'https://wishes-awcq.onrender.com'
 
-fetch('https://wishes-awcq.onrender.com/all-wishes').then((data) => data.json()).then((gifts) => {
+fetch(`${url}/all-wishes`).then((data) => data.json()).then((gifts) => {
     cards = gifts
     createCard()
     handleCheck()
@@ -87,6 +88,7 @@ const handleCheck = () => {
     checks.forEach((check) => {
         check.addEventListener('click', (event) => {
             reserve(event.target.id || event.target.parentNode.id)
+            check.classList.add('check-hidden')
         })
     })
 }
@@ -95,8 +97,7 @@ const handleCheck = () => {
 function reserve(id) {
     const separatedId = id.slice(-1)
 
-    const url = 'https://wishes-awcq.onrender.com/update-wish'
-    fetch(url, {
+    fetch(`${url}/update-wish`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -106,15 +107,32 @@ function reserve(id) {
             id: separatedId,
             is_selected: true
         })
-    }).then(() => {
-        fetch('https://wishes-awcq.onrender.com/all-wishes').then((data) => data.json()).then((gifts) => {
-            wishlistWrapper.innerHTML = ''
-            cards = gifts
-            createCard()
-            handleCheck()
-            handleCancel()
-        })
-    })
+    }).then(
+        (response) => {
+            if (!response.ok) {
+                Toastify({
+                    text: "Цей подарунок вже заброньовано",
+                    duration: 4000,
+                    close: true,
+                    gravity: "top", // `top` or `bottom`
+                    position: "right", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    className: "custom-error"
+                  }).showToast();
+                return;
+            }
+            fetch(`${url}/all-wishes`).then((data) => data.json()).then((gifts) => {
+                wishlistWrapper.innerHTML = ''
+                cards = gifts
+                createCard()
+                handleCheck()
+                handleCancel()
+            })
+        },
+        (error) => {
+            console.log(error)
+        }
+    )
 }
 
 
@@ -133,8 +151,7 @@ const handleCancel = () => {
 function cancelReservation(id) {
     const separatedId = id.slice(-1)
 
-    const url = 'https://wishes-awcq.onrender.com/update-wish'
-    fetch(url, {
+    fetch(`${url}/update-wish`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -145,7 +162,7 @@ function cancelReservation(id) {
             is_selected: false
         })
     }).then(() => {
-        fetch('https://wishes-awcq.onrender.com/all-wishes').then((data) => data.json()).then((gifts) => {
+        fetch(`${url}/all-wishes`).then((data) => data.json()).then((gifts) => {
             wishlistWrapper.innerHTML = ''
             cards = gifts
             createCard()
