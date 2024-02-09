@@ -19,7 +19,7 @@ body {
     padding: 3rem;
     display: flex;
     flex-direction: column;
-    gap: 6.25rem;
+    gap: 1.25rem;
     overflow: hidden;
     align-items: center;
     margin: 0 auto;
@@ -60,24 +60,6 @@ header {
 
 /* ----------------------------------------- */
 
-.radio-btn-container {
-    display: flex;
-    font-size: 1.3rem;
-    font-weight: bold;
-}
-
-#all,
-#selected {
-    display: none;
-}
-
-.radio-label {
-    background-color: #f6b2ff;
-    border: 2px solid #0f0f0f;
-    border-radius: 1rem;
-    padding: 0.5rem;
-}
-
 .wishlist-wrapper {
     display: flex;
     gap: 2rem;
@@ -99,6 +81,18 @@ header {
     padding: 1rem;
     box-shadow: 12px 12px 2px 1px rgb(79 79 112 / 20%);
     position: relative;
+}
+
+.selected>.card-btn-wrap .check {
+    display: none;
+}
+
+.cancel {
+    display: none;
+}
+
+.selected>.card-btn-wrap .cancel {
+    display: block;
 }
 
 .reserved {
@@ -134,8 +128,7 @@ header {
 .card-btn-wrap {
     position: absolute;
     z-index: 3;
-    left: 50%;
-    transform: translateX(-50%);
+    right: 35px;
     margin-top: 1rem;
     display: flex;
     gap: 9rem;
@@ -157,16 +150,91 @@ header {
 }
 
 
-
-.check-hidden {
-    opacity: 0;
-}
-
-
 .custom-error {
     background: #De2e28 !important;
     padding: 1rem !important;
     border-radius: 1rem !important;
+    font-weight: bold !important;
+}
+
+.custom-success {
+    background: #b9a3fe !important;
+    padding: 1rem !important;
+    border-radius: 1rem !important;
+    font-weight: bold !important;
+}
+
+/* ----------------Modal--------------------- */
+
+.modal-wrapper {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 998;
+    background-color: rgba(76, 77, 80, .5);
+    top: 0;
+}
+
+.modal-showed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    width: max-content;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    position: relative;
+    background-color: #fff;
+    padding: 3rem;
+    border-radius: 2rem;
+    border: thick double #6c757d;
+    box-shadow: -4px 0px 100px 15px rgba(0, 0, 0, 0.57);
+}
+
+.img-product-modal {
+    max-width: 300px;
+    height: 393px;
+    border-radius: 2rem;
+    border: thick double #6c757d;
+}
+
+.modal-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.gift-name {
+    max-width: 251px;
+    font-size: 2rem;
+}
+
+.link {
+    display: flex;
+    color: #000;
+    font-weight: bold;
+    align-items: center;
+    gap: .5rem;
+    cursor: pointer;
+}
+
+.link img {
+    width: 1.5rem;
+}
+
+.modal-coment {
+    max-width: 251px;
+}
+
+.modal-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
 }
 
 
@@ -174,20 +242,82 @@ header {
 
 
 @media screen and (max-width: 850px) {
+    .wrapper {
+        gap: 0;
+    }
+
     header {
         flex-direction: column;
     }
+
     .strars {
         display: none;
     }
 }
+
+@media screen and (max-width: 790px) {
+    .modal {
+        width: 60%;
+        justify-content: center;
+        padding: 1.5rem;
+    }
+
+    .img-product-modal {
+        height: 300px;
+    }
+
+    .modal-btn {
+        width: 25px;
+        top: 10px;
+        right: 25px
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .modal-btn {
+        width: 25px;
+        right: 10px
+    }
+
+}
+
 @media screen and (max-width: 453px) {
     .info {
         font-size: 2rem;
     }
+
+    .img-product-modal {
+        max-width: 233px;
+        height: 280px
+    }
+
+    .modal-btn {
+        width: 20px;
+        top: 10px;
+        right: 10px
+    }
 }
+
+@media screen and (max-width: 391px) {
+    .modal-info-container {
+        font-size: 0.8rem;
+    }
+
+    .gift-name {
+        font-size: 1rem;
+    }
+
+    .img-product-modal {
+        max-width: 209px;
+        height: 250px
+    }
+
+}
+
 @media screen and (max-width: 340px) {
     .info {
         font-size: 1.5rem;
     }
+
 }

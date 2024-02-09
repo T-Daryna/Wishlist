@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Caveat:regular,500,600,700" rel="stylesheet" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
     <link
         href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic"
-        rel="stylesheet" 
-    />
+        rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
@@ -39,16 +39,39 @@
 
         </header>
         <main>
-            <div class="radio-btn-container">
-                <div>
-                    <input type="radio" id="all" name="drone" value="all" checked />
-                    <label class="radio-label" for="all">Все</label>
-                </div>
-            </div>
             <div class="wishlist-wrapper"> </div>
         </main>
 
     </div>
+
+    <div class="modal-wrapper">
+        <div class="modal">
+            <img class="img-product-modal" src="" alt="gift-img">
+            <div class="modal-info-container">
+                <a class="link" href="" target="_blank">
+                    <img src="./assets/link-icon.png" alt="link-icon">Купити тут
+                </a>
+                <h2 class="gift-name"></h2>
+                <p class="modal-gift-price"></p>
+                <span class="modal-coment"></span>
+            </div>
+            <svg class="modal-btn" width="33" height="33" viewBox="0 0 48 48" fill="none">
+                <ellipse cx="24" cy="23.5" rx="23" ry="22.5" fill="#FF9EBB" />
+                <path
+                    d="M24 0C19.2533 0 14.6131 1.40758 10.6663 4.04473C6.71955 6.68188 3.64341 10.4302 1.8269 14.8156C0.0103987 19.201 -0.464881 24.0266 0.461164 28.6822C1.38721 33.3377 3.67299 37.6141 7.02945 40.9706C10.3859 44.327 14.6623 46.6128 19.3178 47.5388C23.9734 48.4649 28.799 47.9896 33.1844 46.1731C37.5698 44.3566 41.3181 41.2805 43.9553 37.3337C46.5924 33.3869 48 28.7468 48 24C47.9931 17.6369 45.4623 11.5365 40.9629 7.03711C36.4635 2.53774 30.3631 0.00694821 24 0ZM24 45.75C19.6983 45.75 15.4931 44.4744 11.9164 42.0845C8.33959 39.6945 5.55184 36.2977 3.90563 32.3234C2.25943 28.3491 1.8287 23.9759 2.66793 19.7568C3.50716 15.5377 5.57865 11.6622 8.62044 8.62043C11.6622 5.57864 15.5377 3.50715 19.7568 2.66792C23.9759 1.82869 28.3491 2.25941 32.3234 3.90562C36.2977 5.55183 39.6946 8.33958 42.0845 11.9163C44.4744 15.4931 45.75 19.6983 45.75 24C45.7431 29.7663 43.4493 35.2945 39.3719 39.3719C35.2945 43.4493 29.7663 45.7431 24 45.75Z"
+                    fill="black" />
+                <path
+                    d="M34.545 13.4213C34.3341 13.2106 34.0481 13.0922 33.75 13.0922C33.4519 13.0922 33.1659 13.2106 32.955 13.4213L24 22.4062L15.0487 13.4062C14.8374 13.1949 14.5508 13.0762 14.2519 13.0762C13.953 13.0762 13.6663 13.1949 13.455 13.4062C13.2437 13.6176 13.1249 13.9042 13.1249 14.2031C13.1249 14.502 13.2437 14.7887 13.455 15L22.41 24L13.455 33C13.2442 33.2113 13.1259 33.4978 13.1262 33.7963C13.1266 34.0949 13.2455 34.381 13.4569 34.5919C13.6682 34.8027 13.9547 34.921 14.2532 34.9206C14.5517 34.9203 14.8379 34.8013 15.0487 34.59L24 25.5938L32.955 34.5938C33.1663 34.8051 33.453 34.9238 33.7519 34.9238C34.0508 34.9238 34.3374 34.8051 34.5487 34.5938C34.7601 34.3824 34.8788 34.0958 34.8788 33.7969C34.8788 33.498 34.7601 33.2113 34.5487 33L25.59 24L34.5487 15C34.7555 14.789 34.871 14.5052 34.8703 14.2099C34.8696 13.9145 34.7528 13.6312 34.545 13.4213Z"
+                    fill="black" />
+                <defs>
+                    <clipPath id="clip0_13_7">
+                        <rect width="48" height="48" fill="white" />
+                    </clipPath>
+                </defs>
+            </svg>
+        </div>
+    </div>
+
     <script src="index.js"></script>
 </body>
 
