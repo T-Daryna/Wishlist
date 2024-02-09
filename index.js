@@ -1,6 +1,6 @@
 let cards;
 const wishlistWrapper = document.querySelector('.wishlist-wrapper')
-const url = 'http://localhost:8080'
+const url = 'https://wishes-awcq.onrender.com'
 
 fetch(`${url}/all-wishes`).then((data) => data.json()).then((gifts) => {
     cards = gifts
