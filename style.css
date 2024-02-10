@@ -24,6 +24,7 @@ body {
     position: fixed;
     z-index: 1000;
     backdrop-filter: invert(30%);
+    -webkit-backdrop-filter: invert(30%);
 }
 
 .preloader {
