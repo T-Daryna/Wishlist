@@ -14,6 +14,59 @@ body {
     background-color: #bbfea3;
 }
 
+/* ------------------Preloader----------------------- */
+.preloader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 1000;
+    backdrop-filter: invert(30%);
+}
+
+.preloader {
+    width: 15%;
+    height: 15%;
+}
+
+
+.preloader path:nth-child(2) {
+    transform-origin: center;
+    animation: rotateIn 1.5s ease infinite;
+}
+.preloader path:nth-child(3) {
+    transform-origin: center;
+    animation: rotateOut 1.5s ease infinite;
+}
+
+
+@keyframes rotateIn {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotateOut {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+
+
+/* --------------------------------------------------- */
+
+
+
 .wrapper {
     max-width: 1440px;
     padding: 3rem;

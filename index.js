@@ -7,6 +7,9 @@ fetch(`${url}/all-wishes`).then((data) => data.json()).then((gifts) => {
     createCard()
     handleCheck()
     handleCancel()
+
+    const preloader = document.querySelector('.preloader-container')
+    preloader.style.display = 'none'
 })
 
 
