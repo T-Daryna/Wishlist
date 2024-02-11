@@ -37,6 +37,7 @@ body {
     transform-origin: center;
     animation: rotateIn 1.5s ease infinite;
 }
+
 .preloader path:nth-child(3) {
     transform-origin: center;
     animation: rotateOut 1.5s ease infinite;
@@ -52,6 +53,7 @@ body {
         transform: rotate(360deg);
     }
 }
+
 @keyframes rotateOut {
     0% {
         transform: rotate(0);
@@ -111,6 +113,30 @@ header {
     max-width: 29px;
 }
 
+.stars-container {
+    display: flex;
+}
+
+
+.star-decoration1 {
+    animation: shine 1s linear infinite alternate;
+    transform-origin: center;
+}
+.star-decoration2 {
+    animation: shine 1s linear infinite  alternate;
+    animation-delay: 1s;
+    transform-origin: center;
+}
+
+@keyframes shine {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 
 /* ----------------------------------------- */
 
@@ -135,7 +161,9 @@ header {
     padding: 1rem;
     box-shadow: 12px 12px 2px 1px rgb(79 79 112 / 20%);
     position: relative;
+    transition: all 0.3s linear;
 }
+
 
 .selected>.card-btn-wrap .check {
     display: none;
@@ -172,6 +200,7 @@ header {
     border: thick double #6c757d;
     border-radius: 2rem;
     object-fit: cover;
+    background-color: white;
 }
 
 .product-description {
@@ -192,10 +221,6 @@ header {
     max-width: 2.75rem;
     height: 2.75rem;
     transition: all .3s;
-}
-
-.card-btn:hover {
-    transform: scale(1.2);
 }
 
 
@@ -274,7 +299,21 @@ header {
     align-items: center;
     gap: .5rem;
     cursor: pointer;
+    text-decoration: none;
 }
+
+.link div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    height: 35px;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .4s;
+}
+
+
 
 .link img {
     width: 1.5rem;
@@ -289,6 +328,7 @@ header {
     top: 20px;
     right: 20px;
     cursor: pointer;
+    transition: transform .3s;
 }
 
 
@@ -304,7 +344,7 @@ header {
         flex-direction: column;
     }
 
-    .strars {
+    .stars-container {
         display: none;
     }
 }
@@ -374,4 +414,27 @@ header {
         font-size: 1.5rem;
     }
 
+}
+
+
+@media (hover: hover)  {
+    .wishlist-card:hover {
+        box-shadow: 5px 10px 5px rgb(79 79 112 / 40%);
+        background-color: #FF9EBB;
+        transition: all 0.5s linear;
+        transform: scale(1.05);
+    }
+
+    .card-btn:hover {
+        transform: scale(1.2);
+    }
+
+    .link:hover >  div:nth-child(2) {
+        background-size: 100% 2px;
+        transition: background-size .6s;
+    }
+
+    .modal-btn:hover {
+        transform: scale(1.2);
+    }
 }
